@@ -52,7 +52,7 @@ export default function Game() {
         case 3:
           return 100;
         default:
-          return 25;
+          return 50;
       }
       return newDigit;
     }
