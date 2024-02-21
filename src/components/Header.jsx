@@ -7,6 +7,7 @@ const StyledHeader = styled.div`
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
+  box-shadow: 5px 5px lightgrey;
 `;
 
 export default function Header() {

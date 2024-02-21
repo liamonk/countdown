@@ -2,24 +2,26 @@ import React from "react";
 import Card from "./Card";
 import styled from "styled-components";
 import Header from "./Header";
+import CountdownTimer from "./CountdownTimer";
 
 const StyledGameArea = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
   font-size: 50px;
+  height: 100px;
 `;
 const StyledCardArea = styled.div`
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
   font-size: 50px;
+  min-height: 90px;
 `;
 
 const StyledButton = styled.button`
   font-size: 30px;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  height: 50px;
   background-color: lightGreen;
   border-radius: 5px;
 `;
@@ -39,7 +41,7 @@ export default function Game() {
 
   const newTwoDigitNumber = () => {
     function newMultiple25() {
-      const newDigit = Math.floor(Math.random() * 3);
+      const newDigit = Math.floor(Math.random() * 4);
       switch (newDigit) {
         case 0:
           return 25;
@@ -47,6 +49,8 @@ export default function Game() {
           return 50;
         case 2:
           return 75;
+        case 3:
+          return 100;
         default:
           return 25;
       }
@@ -66,18 +70,13 @@ export default function Game() {
   return (
     <>
       <StyledGameArea>
-        <StyledButton onClick={newOneDigitNumber}>
-          Add a one digit number
-        </StyledButton>
-        <StyledButton onClick={newTwoDigitNumber}>
-          Add a two digit number
-        </StyledButton>
-      </StyledGameArea>
-      <StyledCardArea>{cardElements}</StyledCardArea>
-      <StyledGameArea>
+        <StyledButton onClick={newOneDigitNumber}>Small number</StyledButton>
+        <StyledButton onClick={newTwoDigitNumber}>Big number</StyledButton>
         <StyledButton onClick={newTarget}>Set Target</StyledButton>
       </StyledGameArea>
+      <StyledCardArea>{cardElements}</StyledCardArea>
       <StyledGameArea>Your target is: {target}</StyledGameArea>
+      <CountdownTimer />
     </>
   );
 }

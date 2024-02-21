@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledCard = styled.div`
   background-color: lightBlue;
   padding: 5px;
-  width: 50px;
+  width: 100px;
   text-align: center;
   margin: 10px;
   font-size: 50px;
