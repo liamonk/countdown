@@ -4,8 +4,15 @@ import styled from "styled-components";
 const CountdownContainer = styled.div`
   text-align: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 20px;
+  background-color: lightGrey;
+  border-radius: 30px;
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 50px;
+  padding: 10px;
 `;
 
 const Display = styled.div`
@@ -74,7 +81,7 @@ function CountdownTimer() {
       </Button>
       <Button
         style={{ backgroundColor: "cornflowerBlue" }}
-        onClick={() => adjustTime(-30)}
+        onClick={() => (time > 30 ? adjustTime(-30) : {})}
       >
         -30s
       </Button>

@@ -14,9 +14,11 @@ const StyledGameArea = styled.div`
 `;
 const StyledCardArea = styled.div`
   display: flex;
-  flex-wrap: wrap;
   font-size: 50px;
   min-height: 90px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const StyledButton = styled.button`
@@ -67,12 +69,20 @@ export default function Game() {
     updateTarget(newTargetNumber);
     updateCardDigits(sortedArrayOfDigits);
   };
+
+  const resetGame = () => {
+    updateTarget(0);
+    updateCardDigits([]);
+  };
   return (
     <>
       <StyledGameArea>
         <StyledButton onClick={newOneDigitNumber}>Small number</StyledButton>
         <StyledButton onClick={newTwoDigitNumber}>Big number</StyledButton>
         <StyledButton onClick={newTarget}>Set Target</StyledButton>
+        <StyledButton onClick={resetGame} style={{ backgroundColor: "coral" }}>
+          Reset Game
+        </StyledButton>
       </StyledGameArea>
       <StyledCardArea>{cardElements}</StyledCardArea>
       <StyledGameArea>Your target is: {target}</StyledGameArea>
