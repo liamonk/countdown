@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import styled from "styled-components";
-import Header from "./Header";
+import Button from "./Button";
 import CountdownTimer from "./CountdownTimer";
 
 const StyledGameArea = styled.div`
@@ -12,6 +12,7 @@ const StyledGameArea = styled.div`
   font-size: 50px;
   height: 100px;
 `;
+
 const StyledCardArea = styled.div`
   display: flex;
   font-size: 50px;
@@ -19,13 +20,6 @@ const StyledCardArea = styled.div`
   width: 800px;
   margin-left: auto;
   margin-right: auto;
-`;
-
-const StyledButton = styled.button`
-  font-size: 30px;
-  height: 50px;
-  background-color: lightGreen;
-  border-radius: 5px;
 `;
 
 export default function Game() {
@@ -77,12 +71,34 @@ export default function Game() {
   return (
     <>
       <StyledGameArea>
-        <StyledButton onClick={newOneDigitNumber}>Small number</StyledButton>
-        <StyledButton onClick={newTwoDigitNumber}>Big number</StyledButton>
-        <StyledButton onClick={newTarget}>Set Target</StyledButton>
-        <StyledButton onClick={resetGame} style={{ backgroundColor: "coral" }}>
-          Reset Game
-        </StyledButton>
+        <Button
+          text={"Small Number"}
+          backgroundColor={"lightGreen"}
+          handleClick={() => {
+            newOneDigitNumber();
+          }}
+        ></Button>
+        <Button
+          text={"Big number"}
+          backgroundColor={"lightGreen"}
+          handleClick={() => {
+            newTwoDigitNumber();
+          }}
+        ></Button>
+        <Button
+          text={"Set Target"}
+          backgroundColor={"lightGreen"}
+          handleClick={() => {
+            newTarget();
+          }}
+        ></Button>
+        <Button
+          text={"Reset Game"}
+          backgroundColor={"coral"}
+          handleClick={() => {
+            resetGame();
+          }}
+        ></Button>
       </StyledGameArea>
       <StyledCardArea>{cardElements}</StyledCardArea>
       <StyledGameArea>Your target is: {target}</StyledGameArea>

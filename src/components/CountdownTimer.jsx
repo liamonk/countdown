@@ -1,30 +1,23 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Button from "./Button";
 
 const CountdownContainer = styled.div`
-  text-align: center;
   display: flex;
   justify-content: space-evenly;
   margin-top: 20px;
   background-color: lightGrey;
   border-radius: 30px;
-  width: 800px;
+  max-width: 800px;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 100px;
   height: 50px;
   padding: 10px;
 `;
 
 const Display = styled.div`
   font-size: 3em;
-`;
-
-const Button = styled.button`
-  font-size: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: lightGreen;
-  border-radius: 5px;
 `;
 
 function CountdownTimer() {
@@ -68,23 +61,27 @@ function CountdownTimer() {
 
   return (
     <CountdownContainer>
-      <Button style={{ backgroundColor: "coral" }} onClick={reset}>
-        Reset
-      </Button>
-      <Button onClick={startStop}>{isRunning ? "Pause" : "Start"}</Button>
+      <Button
+        text={"Reset"}
+        backgroundColor={"coral"}
+        handleClick={() => reset()}
+      ></Button>
+      <Button
+        text={isRunning ? "Pause" : "Start"}
+        backgroundColor={"lightGreen"}
+        handleClick={() => startStop()}
+      ></Button>
       <Display>{formatTime(time)}</Display>
       <Button
-        style={{ backgroundColor: "cornflowerBlue" }}
-        onClick={() => adjustTime(30)}
-      >
-        +30s
-      </Button>
+        text={"+30s"}
+        backgroundColor={"cornflowerBlue"}
+        handleClick={() => adjustTime(30)}
+      ></Button>
       <Button
-        style={{ backgroundColor: "cornflowerBlue" }}
-        onClick={() => (time > 30 ? adjustTime(-30) : {})}
-      >
-        -30s
-      </Button>
+        text={"-30s"}
+        backgroundColor={"cornflowerBlue"}
+        handleClick={() => (time > 30 ? adjustTime(-30) : {})}
+      ></Button>
     </CountdownContainer>
   );
 }

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledFooter = styled.footer`
   background-color: lightYellow;
-  height: 50px;
+  max-height: 50px;
   align-items: center;
   justify-content: space-between;
   display: flex;
