@@ -4,15 +4,16 @@ import Button from "./Button";
 
 const CountdownContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 20px;
   background-color: lightGrey;
   border-radius: 30px;
-  max-width: 800px;
+  max-width: 80%;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 100px;
-  height: 50px;
+  min-height: 50px;
   padding: 10px;
 `;
 

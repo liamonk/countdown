@@ -11,15 +11,19 @@ const StyledGameArea = styled.div`
   flex-wrap: wrap;
   font-size: 50px;
   height: 100px;
+  margin-bottom: 20px;
 `;
 
 const StyledCardArea = styled.div`
   display: flex;
+  flex-wrap: wrap;
   font-size: 50px;
   min-height: 90px;
-  width: 800px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
+  overflow: auto;
 `;
 
 export default function Game() {
@@ -101,7 +105,7 @@ export default function Game() {
         ></Button>
       </StyledGameArea>
       <StyledCardArea>{cardElements}</StyledCardArea>
-      <StyledGameArea>Your target is: {target}</StyledGameArea>
+      <StyledGameArea>Target: {target}</StyledGameArea>
       <CountdownTimer />
     </>
   );

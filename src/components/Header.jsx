@@ -4,10 +4,12 @@ import styled from "styled-components";
 const StyledHeader = styled.div`
   background-color: lightYellow;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
   box-shadow: 5px 5px lightgrey;
+  padding-left: 25px;
+  padding-right: 25px;
 `;
 
 export default function Header() {
