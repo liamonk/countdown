@@ -8,8 +8,6 @@ export default function Button(props) {
     background-color: ${props.backgroundColor};
     border-radius: 5px;
     margin-top: 5px;
-    margin-right: auto;
-    margin-left: auto;
   `;
 
   return <StyledButton onClick={props.handleClick}>{props.text}</StyledButton>;

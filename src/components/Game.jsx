@@ -76,14 +76,14 @@ export default function Game() {
     <>
       <StyledGameArea>
         <Button
-          text={"Small Number"}
+          text={"Small"}
           backgroundColor={"lightGreen"}
           handleClick={() => {
             newOneDigitNumber();
           }}
         ></Button>
         <Button
-          text={"Big number"}
+          text={"Big"}
           backgroundColor={"lightGreen"}
           handleClick={() => {
             newTwoDigitNumber();
