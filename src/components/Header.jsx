@@ -10,6 +10,7 @@ const StyledHeader = styled.div`
   box-shadow: 5px 5px lightgrey;
   padding-left: 25px;
   padding-right: 25px;
+  margin-bottom: 10px;
 `;
 
 export default function Header() {
