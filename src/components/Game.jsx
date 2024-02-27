@@ -26,9 +26,47 @@ const StyledCardArea = styled.div`
   overflow: auto;
 `;
 
+const Toggle = styled.button`
+  background-color: ${(props) => (props.isActive ? "lightPink" : "lightBlue")};
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  position: relative;
+  height: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+`;
+
+const Slider = styled.span`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  top: 50%;
+  left: ${(props) => (props.isActive ? "75%" : "25%")};
+  transform: translate(-50%, -50%);
+  transition: left 0.3s;
+`;
+
+const ToggleContainer = styled.div`
+  font-size: 25px;
+  display: flex;
+  background-color: lightGrey;
+  border-radius: 5px;
+  max-height: 50px;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+`;
+
 export default function Game() {
   const [cardDigits, updateCardDigits] = React.useState([]);
   const [target, updateTarget] = React.useState(0);
+  const [threeDigitTarget, updateThreeDigitTarget] = React.useState(false);
   const cardElements = cardDigits.map((card) => {
     return <Card key={card.id} value={card} />;
   });
@@ -62,10 +100,16 @@ export default function Game() {
   };
 
   const newTarget = () => {
-    const newTargetNumber = Math.floor(Math.random() * 999 + 1);
+    const newTargetNumber = Math.floor(
+      Math.random() * (threeDigitTarget ? 999 : 99) + 1
+    );
     const sortedArrayOfDigits = cardDigits.sort((a, b) => a - b);
     updateTarget(newTargetNumber);
     updateCardDigits(sortedArrayOfDigits);
+  };
+
+  const handleTargetToggle = () => {
+    updateThreeDigitTarget(!threeDigitTarget);
   };
 
   const resetGame = () => {
@@ -96,6 +140,14 @@ export default function Game() {
             newTarget();
           }}
         ></Button>
+        <ToggleContainer>
+          <p style={{ paddingRight: "20px" }}>Target Digits:</p>
+          <p style={{ paddingRight: "5px" }}>2</p>
+          <Toggle onClick={handleTargetToggle} isActive={threeDigitTarget}>
+            <Slider isActive={threeDigitTarget}></Slider>
+          </Toggle>
+          <p style={{ paddingLeft: "5px" }}>3</p>
+        </ToggleContainer>
         <Button
           text={"Reset Game"}
           backgroundColor={"coral"}
