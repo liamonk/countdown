@@ -141,7 +141,7 @@ export default function Game() {
           }}
         ></Button>
         <ToggleContainer>
-          <p style={{ paddingRight: "20px" }}>Target Digits:</p>
+          <p style={{ paddingRight: "20px" }}>Target Digits: </p>
           <p style={{ paddingRight: "5px" }}>2</p>
           <Toggle onClick={handleTargetToggle} isActive={threeDigitTarget}>
             <Slider isActive={threeDigitTarget}></Slider>
