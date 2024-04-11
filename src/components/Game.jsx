@@ -101,7 +101,7 @@ export default function Game() {
 
   const newTarget = () => {
     const newTargetNumber = Math.floor(
-      Math.random() * (threeDigitTarget ? 999 : 99) + 1
+      threeDigitTarget ? Math.random() * 899 + 100 : Math.random() * 89 + 10
     );
     const sortedArrayOfDigits = cardDigits.sort((a, b) => a - b);
     updateTarget(newTargetNumber);
